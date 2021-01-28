@@ -1,0 +1,45 @@
+<html>
+<head><title>ftplib_connect</title></head>
+<body>
+
+<h1>ftplib_connect</h1>
+<p>Connect to an FTP server.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_connect(const char *host, const char *proxy, netbuf **nbp)
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>host</b>
+<dd>The name of the host machine to connect to and optionally an
+alternate port number to use.
+
+<dt><b>proxy</b>
+<dd>The proxy server to use (if any).  Supported proxy method is user@host.
+
+<dt><b>nbp</b>
+<dd>The address where the pointer to the newly created control handle should be
+stored.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_connect() establishes a connection to the FTP server on the
+specified machine and returns a handle which can be used to initiate data
+transfers.  The host name should be specified as &lt;host&gt; or &lt;host&gt;:&lt;port&gt; or
+ftp://&lt;host&gt;:&lt;port&gt;. &lt;host&gt; may be either a host name or ip address.
+&lt;port&gt; may be either a service name or a port number.  This sentence is true
+for both host name and proxy server name.
+
+<h2>RETURN VALUE</h2>
+<p>If the connection to the remote server if successful, ftplib_connect()
+returns 1.  Otherwise, 0 is returned.
+
+<p>
+<small>$Id: ftplib_connect.html,v 1.1 2002/12/02 03:12:51 te Exp $</small>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head><title>ftplib_write</title></head>
+<body>
+
+<h1>ftplib_write</h1>
+<p>Write data to a remote file.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_write(void *buf, int len, netbuf *rnbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>buf</b>
+<dd>A buffer containing the data to be sent to the remote file.
+
+<dt><b>len</b>
+<dd>The number of bytes to be sent from 'buf'.
+
+<dt><b>rnbp</b>
+<dd>A handle returned by <a href="ftplib_access.html">ftplib_access()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_write() sends data to a remote file.  If the file were accessed in
+record mode, the necessary conversions are performed.
+
+<h2>RETURN VALUE</h2>
+<p>Returns the number of bytes sent from the user's buffer or -1 on
+error.
+
+<p>
+<small>$Id: ftplib_write.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

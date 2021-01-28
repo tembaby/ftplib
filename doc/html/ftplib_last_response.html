@@ -1,0 +1,35 @@
+<html>
+<head><title>ftplib_last_response</title></head>
+<body>
+
+<h1>ftplib_last_response</h1>
+<p>Retrieve the last response sent by the server.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+char *ftplib_last_response(netbuf *nbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>nbp</b>
+<dd>A pointer to a control handle returned by <a href="ftplib_connect.html">ftplib_connect()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_last_response() returns a pointer to the last response string sent
+by the server.  This can be parsed by the user program to determine more
+information about the last request or can be displayed along with an
+error message.
+
+<h2>RETURN VALUE</h2>
+<p>If nbp is a valid control handle, ftplib_last_response() returns a
+pointer to the last server response string.  Otherwise, NULL is returned.
+
+<p>
+<small>$Id: ftplib_last_response.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

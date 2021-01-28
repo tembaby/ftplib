@@ -1,0 +1,41 @@
+<html>
+<head><title>ftplib_read</title></head>
+<body>
+
+<h1>ftplib_read</h1>
+<p>Read data from a remote file or directory.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_read(void *buf, int max, netbuf *rnbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>buf</b>
+<dd>Specifies the address of a buffer where received data will be
+written.
+
+<dt><b>max</b>
+<dd>Specifies the size of the user's buffer.
+
+<dt><b>rnbp</b>
+<dd>A handle returned by <a href="ftplib_access.html">ftplib_access()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_read() copies up to max bytes of data from the specified data
+connection and returns it to the user's buffer.  If the data connection
+was opened in ASCII mode, no more than one line of data will be returned.
+
+<h2>RETURN VALUE</h2>
+<p>Returns the number of bytes written to the user's buffer or -1 on
+error or end of file.
+
+<p>
+<small>$Id: ftplib_read.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

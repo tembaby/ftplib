@@ -1,0 +1,40 @@
+<html>
+<head><title>ftplib_dir</title></head>
+<body>
+
+<h1>ftplib_dir</h1>
+<p>Performs a verbose directory.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_dir(const char *outputfile, const char *path, netbuf *nbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>outputfile</b>
+<dd>Name of a local file to receive the directory listing.
+
+<dt><b>path</b>
+<dd>File specification to pass to remote 'ls'.
+
+<dt><b>nbp</b>
+<dd>A handle returned by <a href="ftplib_connect.html">ftplib_connect()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>Sends a LIST command to the server with the specified path.  The response
+to this is usually a long format directory listing which will be written
+to the file named in outputfile.  If outputfile is specified as NULL, the
+list will be written to stdout.
+
+<h2>RETURN VALUE</h2>
+<p>Returns 1 if successful or 0 on error.
+
+<p>
+<small>$Id: ftplib_dir.html,v 1.1 2002/12/02 03:12:51 te Exp $</small>
+</body>
+</html>

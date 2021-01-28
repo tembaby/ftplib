@@ -1,0 +1,38 @@
+<html>
+<head><title>ftplib_set_restoff</title></head>
+<body>
+
+<h1>ftplib_set_restoff</h1>
+<p>Set the restart offset value
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+void ftplib_set_restoff(size_t restoff, netbuf *nbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>restoff</b>
+<dd>Offset to restart from
+
+<dt><b>nbp</b>
+<dd>FTP control handle returned by previous call to <a href="ftplib_connect.html">ftplib_connect()</a>
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p> ftplib_set_restoff() should be used before calling 
+<a href="ftplib_access.html">ftplib_access()</a> to intiate
+restart session (FTPLIB_FILE_REST) so that ftplib_access() can send
+approperiate REST XXXX command before returning data connection
+handle to caller.  Otherwise the restart offset value is unknown.
+
+<h2>RETURN VALUE</h2>
+<p>Nothing
+
+<p>
+<small>$Id: ftplib_set_restoff.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

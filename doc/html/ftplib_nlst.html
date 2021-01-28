@@ -1,0 +1,38 @@
+<html>
+<head><title>ftplib_nlst</title></head>
+<body>
+
+<h1>ftplib_nlst</h1>
+<p>Performs a terse directory.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_nlst(const char *output, const char *path, netbuf *nbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>output</b>
+<dd>Specifies the name of a file to receive the directory listing.
+
+<dt><b>path</b>
+<dd>Specifies an argument to 'ls' on the remote system.
+
+<dt><b>nbp</b>
+<dd>A handle returned by <a href="ftplib_connect.html">ftplib_connect()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>Performs a short form directory listing of the specified path on the
+remote system.  The results are written to the specified file.
+
+<h2>RETURN VALUE</h2>
+<p>Returns 1 if successful or 0 on error.
+
+<p>
+<small>$Id: ftplib_nlst.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head><title>ftplib_append</title></head>
+<body>
+
+<h1>ftplib_append</h1>
+<p>Append local file to remote one.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_append(const char *localfile, const char *path, char mode, netbuf *nbp)
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>localfile</b>
+<dd>Specifies the local file to be transfered to the server.
+
+<dt><b>path</b>
+<dd>Specifies the name to be given to the file on the remote server.
+
+<dt><b>mode</b>
+<dd>The FTP transfer mode as FTPLIB_ASCII or FTPLIB_BINARY.
+
+<dt><b>nbp</b>
+<dd>A handle to FTP control connection returned by <a href="ftplib_connect.html">ftplib_connect()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_append() will either uploads or restart uploading local file 
+<i>localfile</i> to the file specified by <i>path</i> on remote server.
+If the file <i>path</i> exist on remote server, ftplib_append() will inspect
+its size and restart uploading what is left from local file.
+
+<h2>RETURN VALUE</h2>
+<p>Returns 1 if the file was uploaded succesfully or already completely 
+uploaded.  Returns 0 on error.
+
+<p>
+<small>$Id: ftplib_append.html,v 1.1 2002/12/02 03:12:51 te Exp $</small>
+</body>
+</html>

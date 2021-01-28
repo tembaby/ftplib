@@ -1,0 +1,40 @@
+<html>
+<head><title>ftplib_put</title></head>
+<body>
+
+<h1>ftplib_put</h1>
+<p>Send a file to the remote system.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_put(const char *input, const char *path, char mode, netbuf *nbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>input</b>
+<dd>Specifies the name of a local file to be transfered to the server.
+
+<dt><b>path</b>
+<dd>Specifies the name to be given to the file on the remote system.
+
+<dt><b>mode</b>
+<dd>Specifies the transfer mode as FTPLIB_ASCII or FTPLIB_IMAGE.
+
+<dt><b>nbp</b>
+<dd>A handle returned by <a href="ftplib_connect.html">ftplib_connect()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_put() transfers a local file to the remote system.
+
+<h2>RETURN VALUE</h2>
+<p>Returns 1 if successful or 0 on error.
+
+<p>
+<small>$Id: ftplib_put.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

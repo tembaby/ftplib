@@ -1,0 +1,46 @@
+<html>
+<head><title>ftplib_moddate</title></head>
+<body>
+
+<h1>ftplib_moddate</h1>
+<p>Determine last modification time of a remote file.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_moddate(char *path, char *buf, int max, netbuf *nbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>path</b>
+<dd>Name of remote file to be checked.
+
+<dt><b>buf</b>
+<dd>A pointer to a buffer where the result should be returned.
+
+<dt><b>max</b>
+<dd>Specifies the size of the user's buffer.
+
+<dt><b>nbp</b>
+<dd>A handle returned by <a href="ftplib_connect.html">ftplib_connect()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_moddate() attempts to determine the last access time of a remote
+file and return it to the user's buffer.  The date and time are returned
+as a string in the format 'YYYYMMDDHHMMSS'.
+
+<h2>RETURN VALUE</h2>
+<p>If a good response is received and the date and time are successfully
+parsed out of the result, 1 is returned.  Otherwise, 0 is returned.
+
+<h2>CAVEATS</h2>
+<p>Some servers may not support the MDTM command.
+
+<p>
+<small>$Id: ftplib_moddate.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

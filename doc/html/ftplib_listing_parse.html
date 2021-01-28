@@ -1,0 +1,60 @@
+<html>
+<head><title>ftplib_listing_parse</title></head>
+<body>
+
+<h1>ftplib_listing_parse</h1>
+<p>Parses a line from remote directory listing.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+struct ftp_list_entry *ftplib_listing_parse(char *fline);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>fline</b>
+<dd>a single line returned from previous remote directory listing command.  
+E.g.,
+<pre>
+(fline = "----------   1 owner	group         1803128 Jul 10 10:18 ls-lR.Z")
+</pre>
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_listing_parse() will decompose a line pointed to by <i>fline</i>
+and returns pointer to malloc()ed <i>ftp_list_entry</i> strutcure that contains
+parsed information about the file entry.  <i>ftp_list_entry</i> structure
+contains TAILQ_ENTRY <i>fle_link</i> so that structure can be chained together
+in a single list (List header should be of type <i>struct ftp_list_t</i>).
+
+<pre>
+
+struct ftp_list_entry {
+	TAILQ_ENTRY(ftp_list_entry)
+		fle_link;
+	u_char	fle_etype;		/* Entry type */
+#define ETYPE_FILE	1
+#define ETYPE_DIR	2
+#define ETYPE_SYMLINK	3
+#define ETYPE_DEVICE	4
+	char	fle_perm[10];		/* Premissions as rwxr-xr-- */
+	char	fle_owner[64];		/* Owner if the entry */
+	char	fle_grp[64];		/* Group name */
+	size_t	fle_size;
+	time_t	fle_mtime;		/* Not used */
+	char	fle_smtime[16];		/* Modification time/date */
+	char	fle_name[PATH_MAX];
+};
+
+</pre>
+
+<h2>RETURN VALUE</h2>
+<p>Returns pointer to ftp_list_entry structure if successful or NULL otherwise.
+
+<p>
+<small>$Id: ftplib_listing_parse.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

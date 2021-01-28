@@ -1,0 +1,39 @@
+<html>
+<head><title>ftplib_systype</title></head>
+<body>
+
+<h1>ftplib_systype</h1>
+<p>Determine system type of remote server.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_systype(char *buf, int max, netbuf *nbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>buf</b>
+<dd>A pointer to a buffer where the result will be returned.
+
+<dt><b>max</b>
+<dd>Specifies the size of the user buffer.
+
+<dt><b>nbp</b>
+<dd>A handle returned by <a href="ftplib_connect.html">ftplib_connect()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_systype() issues a SYST command to the remote system and attempts
+to parse the system type out of the response and return it to the user's
+buffer.
+
+<h2>RETURN VALUE</h2>
+<p>Returns 1 if successful or 0 on error.
+
+<p>
+<small>$Id: ftplib_systype.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

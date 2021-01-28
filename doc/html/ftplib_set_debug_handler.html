@@ -1,0 +1,40 @@
+<html>
+<head><title>ftplib_set_debug_handler</title></head>
+<body>
+
+<h1>ftplib_set_debug_handler</h1>
+<p>Set the logging messages callback function
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+void ftplib_set_debug_handler(netbuf *nbp, ftp_debug_callback udbg);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>nbp</b>
+<dd>An FTP connection returned from <a href="ftplib_connect.html">ftplib_connect()</a>
+
+<dt><b>udbg</b>
+<dd>Pointer to logging function
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_set_debug_handle() will set a callback routine specific to FTP
+connection <i>nbp</i> as well as the global default debug callback which
+is used during ftplib_connect() since there is no FTP connection yet.<br>
+The callback is typedef'ed as:<br>
+<pre>
+typedef void (*ftp_debug_callback)(const char *);
+</pre>
+
+<h2>RETURN VALUE</h2>
+<p>Nothing
+
+<p>
+<small>$Id: ftplib_set_debug_handler.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

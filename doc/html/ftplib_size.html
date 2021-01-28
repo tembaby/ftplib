@@ -1,0 +1,42 @@
+<html>
+<head><title>ftplib_size</title></head>
+<body>
+
+<h1>ftplib_size</h1>
+<p>Determine size of remote file.
+
+<h2>SYNOPSIS</h2>
+<pre>
+#include &lt;ftplib.h&gt;
+int ftplib_size(char *path, size_t *size, netbuf *nbp);
+</pre>
+
+<h2>PARAMETERS</h2>
+<dl>
+
+<dt><b>path</b>
+<dd>A pointer to a buffer where the result should be returned.
+
+<dt><b>size</b>
+<dd>A pointer to size_t object where the size will be returned.
+
+<dt><b>nbp</b>
+<dd>A handle returned by <a href="ftplib_connect.html">ftplib_connect()</a>.
+
+</dl>
+
+<h2>DESCRIPTION</h2>
+<p>ftplib_size() attempts to determine the size of a remote file.
+
+<h2>RETURN VALUE</h2>
+<p>If a good response is received and the size is successfully parsed out
+of the result, 1 is returned.  Otherwise, 0 is returned.
+
+<p>Some servers may not support the SIZE command.  If this request fails,
+the size may be available in the response to a RETR (<a
+href="ftplib_open.html">ftplib_open()</a> with typ=FTPLIB_FILE_READ).
+
+<p>
+<small>$Id: ftplib_size.html,v 1.1 2002/12/02 03:12:52 te Exp $</small>
+</body>
+</html>

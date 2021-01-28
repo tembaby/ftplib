@@ -1,0 +1,86 @@
+<!--
+$Id: ftplib.html,v 1.3 2002/10/11 20:15:17 te Exp $
+-->
+
+<html>
+<head><title>Ftp Library</title></head>
+<body>
+
+<h1>Ftp Library</h1>
+
+<h2>Miscellaneous Functions</h2>
+<ul>
+<li><a href="ftplib_init.html">ftplib_init()</a> - Initialize the library
+<li><a href="ftplib_deinit.html">ftplib_deinit()</a> - UnInitialize the library &lt;ftplib v4.0&gt;
+<li><a href="ftplib_Site.html">ftplib_site()</a> - Send a 'SITE' command
+<li><a href="ftplib_last_response.html">ftplib_last_response()</a> - Retrieve last server response
+<li><a href="ftplib_systype.html">ftplib_systype()</a> - Determine remote system type &lt;ftplib V3.1&gt;
+<li><a href="ftplib_size.html">ftplib_size()</a> - Determine size of remote file &lt;ftplib V3.1&gt;
+<li><a href="ftplib_moddate.html">ftplib_moddate()</a> - Determine modification time of file &lt;ftplib V3.1&gt;
+<li><a href="ftplib_help.html">ftplib_help()</a> - Get general help from server of about specific command &lt;ftplib v4.0&gt;
+<li><a href="ftplib_abort.html">ftplib_abort()</a> - Abort current data connection &lt;ftplib v4.0&gt;
+<li><a href="ftplib_version.html">ftplib_version()</a> - Determine current version of ftplib &lt;ftplib v4.0&gt;
+<li><a href="ftplib_set_debug.html">ftplib_set_debug()</a> - Sets debug level &lt;ftplib v4.0&gt;
+<li><a href="ftplib_set_debug_handler.html">ftplib_set_debug_handler()</a> - Sets both default and connection specific debug handler &lt;ftplib v4.0&gt;
+</ul>
+
+<h2>Server Connection</h2>
+<ul>
+<li><a href="ftplib_connect.html">ftplib_connect()</a> - Connect to a remote server
+<li><a href="ftplib_login.html">ftplib_login()</a> - Login to remote machine &lt;Updated v4.0&gt;
+<li><a href="ftplib_quit.html">ftplib_quit()</a> - Disconnect from remote server
+<li><a href="ftplib_options.html">ftplib_options()</a> - Set Connection Options &lt;ftplib V3.1&gt; &lt;Updated v4.0&gt;
+</ul>
+
+<h2>Directory Functions</h2>
+<ul>
+<li><a href="ftplib_chdir.html">ftplib_chdir()</a> - Change working directory
+<li><a href="ftplib_mkdir.html">ftplib_mkdir()</a> - Create a directory
+<li><a href="ftplib_rmdir.html">ftplib_rmdir()</a> - Remove a directory
+<li><a href="ftplib_dir.html">ftplib_dir()</a> - List a remote directory
+<li><a href="ftplib_nlst.html">ftplib_nlst()</a> - List a remote directory
+<li><a href="ftplib_cdup.html">ftplib_cdup()</a> - Change to parent directory &lt;ftplib V3.1&gt;
+<li><a href="ftplib_pwd.html">ftplib_pwd()</a> - Determine current working directory &lt;ftplib V3.1&gt;
+</ul>
+
+<h2>File to File Transfer</h2>
+<ul>
+<li><a href="ftplib_get.html">ftplib_get()</a> - Retreive a remote file
+<li><a href="ftplib_put.html">ftplib_put()</a> - Send a local file to remote
+<li><a href="ftplib_delete.html">ftplib_delete()</a> - Delete a remote file
+<li><a href="ftplib_rename.html">ftplib_rename()</a> - Rename a remote file
+<li><a href="ftplib_resume.html">ftplib_resume()</a> - Resume previous download &lt;ftplib v4.0&gt;
+<li><a href="ftplib_append.html">ftplib_append()</a> - Append to previous broken upload &lt;ftplib v4.0&gt;
+</ul>
+
+<h2>File to Program Transfer</h2>
+<p>These routines were added in V3.  They allow programs access to the
+data streams connected to remote files and directories.
+<ul>
+<li><a href="ftplib_access.html">ftplib_access()</a> - Open a remote file or directory
+<li><a href="ftplib_read.html">ftplib_read()</a> - Read from remote file or directory
+<li><a href="ftplib_write.html">ftplib_write()</a> - Write to remote file
+<li><a href="ftplib_close.html">ftplib_close()</a> - Close data connection
+</ul>
+
+<!--
+<h2>Utilities</h2>
+<ul>
+<li><a href="qftp.html">qftp</a> - Command line ftp utility
+</ul>
+-->
+
+<HR>
+
+<P>
+v3.1: Last Updated - June 23, 1998
+<ADDRESS><A HREF="http://www.cnj.digex.net/~pfau">Thomas Pfau</A> / <A
+HREF="mailto:pfau@cnj.digex.net">pfau@cnj.digex.net</A></ADDRESS>
+</p>
+<p>
+v4.0: $Date: 2002/10/11 20:15:17 $
+<address><a href="http://tsemba.tripod.com/">Tamer Embaby</a> /
+<a href="mailto:tsemba@menanet.net">tsemba@menanet.net</a></address>
+</p>
+</body>
+</html>
