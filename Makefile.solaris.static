@@ -1,0 +1,32 @@
+# $Id: Makefile.solaris.static,v 1.1 2004/04/21 22:12:17 te Exp $
+
+SOURCES		= ftplib.c
+CC		= gcc
+SOOBJ		= ftplib-shared.o
+STOBJ		= ftplib-static.o
+OBJS		= $(STOBJ)
+TARGET		= libftp
+DEBUG 		=
+UCFLAGS 	= -I. -Isolaris -DUNIX -DFTPLIB_DEFMODE=FTPLIB_PORT
+INSTALLDIR	= /export/home/te/bin
+HDRDEP		= ftplib.h
+CLEAN_EXTRA	= solaris/*.o
+
+CFLAGS		+= $(UCFLAGS)
+
+TARGETS		= $(TARGET).a
+
+all		: $(TARGETS)
+
+clean		:
+	rm -f $(OBJECTS) core *.core $(TARGETS) $(CLEAN_EXTRA)
+
+$(STOBJ)	: ftplib.c ftplib.h
+	$(CC) -c $(CFLAGS) $(SOURCES) -o $(STOBJ)
+
+$(SOOBJ)	: ftplib.c ftplib.h
+	$(CC) -c $(CFLAGS) -fPIC $(SOURCES) -o $(SOOBJ)
+
+libftp.a	: $(STOBJ)
+	ar -rc $@ $(STOBJ)
+

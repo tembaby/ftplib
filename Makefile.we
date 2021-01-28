@@ -1,0 +1,63 @@
+#
+# $Id: Makefile.we,v 1.1 2002/09/30 20:14:20 te Exp $
+#
+
+OBJS		= main.obj
+TRGT		= ftptest
+UCFLAGS		= -D_WINDOWS -DDEBUG -Fo$*.obj
+EXTRALIBS	= ftplib.lib
+
+CC		= cl
+LINK		= link
+INC		= -I.
+OPTIMIZE	= -O2
+CFLAGS		= -c -W3 -nologo
+
+#
+# Debug information options are: -Zi
+#
+!if defined (DEBUG) && "$(DEBUG)" == "YES"
+OPTIMIZE	= -Zi
+LINK_OPTS	= -debug
+!else
+OPTIMIZE	= -O2
+LINK_OPTS	=
+!endif
+
+#
+# Stack protection, ``-GS'' C compiler option to prevent 
+# buffer overflows
+#
+!if defined (STACK_PROTECT) && "$(STACK_PROTECT)" == "YES"
+CFLAGS		= $(CFLAGS) -GS
+!endif
+
+#
+# Extra C compiler flags.
+#
+!ifdef ECFLAGS
+CFLAGS		= $(CFLAGS) $(ECFLAGS)
+!endif
+
+all		: $(TRGT).exe
+
+.c.obj		:
+	$(CC) $(CFLAGS) $(INC) $(DEFINE) $(OPTIMIZE) $<
+
+objs		: $(OBJS)
+
+$(TRGT).exe	: $(OBJS) $(RES)
+	$(LINK)						\
+		-nologo					\
+		-out:$(TRGT).exe			\
+		-map:$(TRGT).map			\
+		-machine:IX86				\
+		$(OBJS) $(EXTRALIBS)
+
+clean		: 
+	@if exist *.exe del *.exe
+	@if exist *.obj del *.obj
+	@if exist *.res del *.res
+	@if exist *.map del *.map
+
+## EOF ##

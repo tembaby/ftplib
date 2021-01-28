@@ -1,0 +1,89 @@
+# $Id: Makefile.w32,v 1.1 2002/09/30 20:14:20 te Exp $
+#
+
+!include <ntwin32.mak>
+
+OBJS		= ftplib.obj
+TRGT		= ftplib
+FLAGS		= -nologo -c
+INC		= -Iwin32 -I.
+DEFINE		= -D_WINDOWS -DWIN32
+DEBUG		= -O2
+LINK		= link
+
+#
+# Debug information options are: -Zi
+#
+!if defined (DEBUG) && "$(DEBUG)" == "YES"
+OPTIMIZE	= -Zi
+LINK_OPTS	= -debug
+!else
+OPTIMIZE	= -O2
+LINK_OPTS	=
+!endif
+
+#
+# .Def file
+#
+!ifndef DEFFILE
+DEFFILE		= $(TRGT)
+!endif
+
+#
+# Default address to link a DLL with an executable.  It's changed as
+# necessary at load time as seen approperiate by the dynamic loader.
+#
+!if !defined (BASE) || "$(BASE)" == ""
+BASE		= 0x1C000000
+!endif
+
+#
+# Stack protection, ``-GS'' C compiler option to prevent 
+# buffer overflows
+#
+!if defined (STACK_PROTECT) && "$(STACK_PROTECT)" == "YES"
+CFLAGS		= $(CFLAGS) -GS
+!endif
+
+#
+# Extra C compiler flags.
+#
+!ifdef ECFLAGS
+CFLAGS		= $(CFLAGS) $(ECFLAGS)
+!endif
+
+all		: $(TRGT).dll
+
+.c.obj		:
+	$(CC) $(CFLAGS) $(INC) $(DEFINE) $(DEBUG) $(FLAGS) $<
+
+.rc.res		:
+	$(rc) $(rcvars) $(INC) -r $<
+
+$(TRGT).lib	: $(DEFFILE).def
+	$(implib) -machine:$(CPU) \
+		-nologo	\
+		-def:$(DEFFILE).def \
+		-out:$(TRGT).lib \
+		$(OBJS)
+   
+$(TRGT).dll	: $(OBJS) $(RES) $(TRGT).lib
+	$(LINK)	\
+		-nologo	\
+		-base:$(BASE) \
+		-dll \
+		-entry:_DllMainCRTStartup$(DLLENTRY) \
+		-out:$(TRGT).dll \
+		-map:$(TRGT).map \
+		-machine:IX86 \
+		$(LINK_OPTS) \
+		$(RES) $(TRGT).exp $(OBJS) $(guilibs) $(EXTRALIBS)
+
+clean		: 
+	@if exist *.dll del *.dll
+	@if exist *.lib del *.lib
+	@if exist *.obj del *.obj
+	@if exist *.exp del *.exp
+	@if exist *.res del *.res
+	@if exist *.map del *.map
+	@if exist *.ilk del *.ilk

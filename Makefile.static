@@ -1,0 +1,11 @@
+# $Id: Makefile.static,v 1.4 2002/11/19 17:25:27 te Exp $
+
+UCFLAGS		= -DFTPLIB_DEFMODE=FTPLIB_PORT
+TARGET		= libftp
+OBJS		= ftplib.o
+PROGDIR		= ftplib
+TARBALL		= ftplib.tar.gz
+DISTRIB_EXTERNAL_FILES = unix.shared.c.mk
+DEBUG		=
+
+.include <unix.static.c.mk>

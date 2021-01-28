@@ -1,0 +1,10 @@
+# $Id: Makefile.shared,v 1.2 2002/10/12 19:01:46 te Exp $
+
+UCFLAGS		= -DFTPLIB_DEFMODE=FTPLIB_PORT
+TARGET		= libftp
+OBJS		= ftplib.o
+PROGDIR		= ftplib
+SOVER		= 4.0
+DISTRIB_EXTERNAL_FILES = unix.static.c.mk
+
+.include <unix.shared.c.mk>
